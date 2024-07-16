@@ -14,11 +14,12 @@ export class VendingService {
   insertCoin(denomination: number): void {
     if (this.acceptedCoins.includes(denomination)) {
       const newAmount = this.insertedAmount.value + denomination;
-      if (newAmount <= this.maxInsertedAmount) {
-        this.insertedAmount.next(newAmount);
-      } else {
+
+      if (newAmount > this.maxInsertedAmount) {
         throw new Error('Exceeded maximum inserted amount');
       }
+
+      this.insertedAmount.next(newAmount);
     } else {
       throw new Error('Invalid coin denomination');
     }

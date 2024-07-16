@@ -1,1 +1,37 @@
-<p>vending-machine works!</p>
+<!-- <div class="vending-machine">
+  <h2>Vending Machine</h2>
+  <div>
+    <p>Inserted Amount: {{ insertedAmount | currency }}</p>
+    <button (click)="insertCoin(0.1)">Insert $0.10</button>
+    <button (click)="insertCoin(0.25)">Insert $0.25</button>
+    <button (click)="insertCoin(0.5)">Insert $0.50</button>
+    <button (click)="insertCoin(1)">Insert $1.00</button>
+    <button (click)="reset()">Return Coins</button>
+  </div>
+</div> -->
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="font-weight-bold text-center">Vending Machine</h2>
+    <div class="text-center mb-3">
+      Inserted Amount:
+      {{ insertedAmount | currency : "USD" }}
+    </div>
+
+    <button class="btn btn-primary w-100 mb-3" (click)="insertCoin(0.1)">
+      Insert $0.10
+    </button>
+    <button class="btn btn-primary w-100 mb-3" (click)="insertCoin(0.25)">
+      Insert $0.25
+    </button>
+    <button class="btn btn-primary w-100 mb-3" (click)="insertCoin(0.5)">
+      Insert $0.50
+    </button>
+    <button class="btn btn-primary w-100 mb-3" (click)="insertCoin(1)">
+      Insert $1
+    </button>
+
+    <br />
+    <button class="btn btn-danger w-100" (click)="reset()">Reset</button>
+  </div>
+</div>

@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<!-- <div class="container">
+  <div class="left-panel">
+    <router-outlet></router-outlet>
+   
+  </div>
+  <div class="right-panel">
+    <app-vending-machine></app-vending-machine>
+  </div>
+</div>  -->
+
+<div class="container mt-5">
+  <div class="row">
+    <!-- Vending Machine Component -->
+    <div class="col-md-4 col-12 mb-3">
+      <app-vending-machine></app-vending-machine>
+    </div>
+
+    <!-- Product List Component -->
+    <div class="col-md-8 col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

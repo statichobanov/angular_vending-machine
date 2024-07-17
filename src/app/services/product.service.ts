@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product';
-import { tap } from 'rxjs/operators';
+import { MAX_PRODUCTS_LIMIT, MIN_PRODUCTS_LIMIT } from '../constanst/common';
 
 @Injectable({
   providedIn: 'root',
@@ -22,11 +22,18 @@ export class ProductService {
   }
 
   getProductById(id: number): Product | undefined {
-    return this.products.getValue().find((product) => product.id === id);
+    return this.products
+      .getValue()
+      .find((product) => Number(product.id) === id);
   }
 
   addProduct(newProduct: Product): void {
     const currentProducts = this.products.getValue();
+
+    if (currentProducts.length >= MAX_PRODUCTS_LIMIT) {
+      throw new Error('Exceeded products limit');
+    }
+
     this.products.next([...currentProducts, newProduct]);
   }
 
@@ -40,6 +47,11 @@ export class ProductService {
 
   deleteProduct(productId: number): void {
     const currentProducts = this.products.getValue();
+
+    if (currentProducts.length === MIN_PRODUCTS_LIMIT) {
+      throw new Error('There must be atleast one product in stock');
+    }
+
     const updatedProducts = currentProducts.filter(
       (product) => product.id !== productId
     );

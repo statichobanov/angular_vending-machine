@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VendingService } from '../../services/vending.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vending-machine',
@@ -9,7 +10,7 @@ import { VendingService } from '../../services/vending.service';
 export class VendingMachineComponent implements OnInit {
   insertedAmount: number = 0;
 
-  constructor(private vendingService: VendingService) {}
+  constructor(private vendingService: VendingService, private router: Router) {}
 
   ngOnInit(): void {
     this.vendingService.insertedAmount$.subscribe((amount) => {
@@ -27,5 +28,9 @@ export class VendingMachineComponent implements OnInit {
 
   reset(): void {
     this.vendingService.reset();
+  }
+
+  navigateToAdministration(): void {
+    this.router.navigate([`/admin`]);
   }
 }

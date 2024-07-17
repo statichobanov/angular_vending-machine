@@ -7,6 +7,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductListComponent },
   { path: 'product-detail/:id', component: ProductDetailComponent },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

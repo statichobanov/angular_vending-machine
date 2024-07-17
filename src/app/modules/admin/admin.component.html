@@ -1,0 +1,32 @@
+<!-- src/app/admin/admin.component.html -->
+<div class="container">
+  <h2>Admin Panel</h2>
+  <button class="btn btn-primary m-2" (click)="navigateToAddProduct()">
+    Add Product
+  </button>
+  <a [routerLink]="['/product-list']" class="float-end"
+    >Back to products ordering</a
+  >
+  <div class="container mt-5">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let product of products" class="card mb-3 shadow">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">
+          Price: {{ product.price }} | Quantity: {{ product.quantity }}
+        </p>
+        <button class="btn btn-danger me-2" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+        <a
+          [routerLink]="['product-update', product.id]"
+          class="btn btn-warning"
+        >
+          Update
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

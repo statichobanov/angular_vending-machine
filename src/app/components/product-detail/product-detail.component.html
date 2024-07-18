@@ -1,15 +1,12 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8 col-12">
-      <app-product-card [product]="product">
-        <button buyButton class="btn btn-primary" (click)="buyProduct()">
-          Buy
-        </button>
+<div class="container">
+  <h2 class="mb-5 text-center">Selected Product</h2>
+  <app-product-card [product]="product">
+    <button buyButton class="btn btn-primary" (click)="buyProduct()">
+      Buy
+    </button>
 
-        <a backButton class="float-end mt-1" [routerLink]="['/product-list']">
-          <i class="bi bi-backspace-fill"></i>
-        </a>
-      </app-product-card>
-    </div>
-  </div>
+    <a backButton class="float-end mt-1" [routerLink]="['/product-list']">
+      <i class="bi bi-backspace-fill"></i>
+    </a>
+  </app-product-card>
 </div>

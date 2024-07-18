@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VendingService } from '../../services/vending.service';
 import { Router } from '@angular/router';
+
+import { VendingService } from '../../services/vending.service';
 
 @Component({
   selector: 'app-vending-machine',

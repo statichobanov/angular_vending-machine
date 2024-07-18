@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+
 import { Product } from '../models/product';
 import {
   ERROR_MESSAGES,
@@ -8,7 +10,6 @@ import {
   MIN_PRODUCTS_LIMIT,
 } from '../constanst';
 import { environment } from '@env';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',

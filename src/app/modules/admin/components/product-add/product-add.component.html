@@ -1,14 +1,17 @@
 <!-- product-add.component.html -->
 <div class="form-container">
-  <h2 class="mb-4">Add New Product</h2>
-  <a class="float-end" routerLink="/admin">
-    <button
-      type="button"
-      class="btn-close"
-      disabled
-      aria-label="Close"
-    ></button>
-  </a>
+  <div class="d-flex justify-content-between">
+    <h2 class="text-center">Add New Product</h2>
+    <a class="close" routerLink="/admin">
+      <button
+        type="button"
+        class="btn-close"
+        disabled
+        aria-label="Close"
+      ></button>
+    </a>
+  </div>
+
   <app-product-form
     [submitButtonText]="'Add'"
     (formSubmit)="onSubmit($event)"

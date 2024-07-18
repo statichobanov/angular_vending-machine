@@ -1,14 +1,16 @@
 <!-- product-update.component.html -->
 <div class="form-container">
-  <h2 class="mb-4">Update Product</h2>
-  <a class="float-end" routerLink="/admin">
-    <button
-      type="button"
-      class="btn-close"
-      disabled
-      aria-label="Close"
-    ></button>
-  </a>
+  <div class="d-flex justify-content-between">
+    <h2 class="mb-4 text-center">Update Product</h2>
+    <a class="float-end" routerLink="/admin">
+      <button
+        type="button"
+        class="btn-close"
+        disabled
+        aria-label="Close"
+      ></button>
+    </a>
+  </div>
   <app-product-form
     [product]="product"
     [submitButtonText]="'Update'"

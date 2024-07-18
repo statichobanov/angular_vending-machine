@@ -47,13 +47,11 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.productForm.valid) {
-      const updatedProduct = { ...this.product, ...this.productForm.value };
+  onSubmit(updatedProduct: Product): void {
+    const productToUpdate = { ...this.product, ...updatedProduct };
 
-      this.productService.updateProduct(updatedProduct);
+    this.productService.updateProduct(productToUpdate);
 
-      this.router.navigate(['/admin']);
-    }
+    this.router.navigate(['/admin']);
   }
 }

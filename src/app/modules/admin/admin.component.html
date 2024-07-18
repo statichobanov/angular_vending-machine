@@ -11,22 +11,21 @@
     <router-outlet></router-outlet>
   </div>
   <div class="list-container">
-    <div *ngFor="let product of products" class="card mb-3 shadow">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">
-          Price: {{ product.price }} | Quantity: {{ product.quantity }}
-        </p>
-        <button class="btn btn-danger me-2" (click)="deleteProduct(product.id)">
-          Delete
-        </button>
-        <a
-          [routerLink]="['product-update', product.id]"
-          class="btn btn-warning"
-        >
-          Update
-        </a>
-      </div>
-    </div>
+    <app-product-card *ngFor="let product of products" [product]="product">
+      <button
+        deleteButton
+        class="btn btn-danger me-2"
+        (click)="deleteProduct(product.id)"
+      >
+        Delete
+      </button>
+      <a
+        updateButton
+        [routerLink]="['product-update', product.id]"
+        class="btn btn-warning"
+      >
+        Update
+      </a>
+    </app-product-card>
   </div>
 </div>

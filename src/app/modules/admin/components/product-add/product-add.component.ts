@@ -14,34 +14,15 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product-add.component.html',
   styleUrls: ['./product-add.component.scss'],
 })
-export class ProductAddComponent implements OnInit {
-  productForm!: FormGroup;
+export class ProductAddComponent {
+  constructor(private productService: ProductService, private router: Router) {}
 
-  constructor(
-    private fb: FormBuilder,
-    private productService: ProductService,
-    private router: Router
-  ) {}
+  onSubmit(newProduct: Product): void {
+    newProduct.id = this.generateRandomId();
 
-  ngOnInit(): void {
-    this.productForm = this.fb.group({
-      name: ['', [Validators.required, nameValidator]],
-      price: [0, [Validators.required, priceValidator]],
-      quantity: [0, [Validators.required, quantityValidator]],
-    });
-  }
+    this.productService.addProduct(newProduct);
 
-  onSubmit(): void {
-    if (this.productForm.valid) {
-      const newProduct: Product = {
-        id: this.generateRandomId(),
-        ...this.productForm.value,
-      };
-
-      this.productService.addProduct(newProduct);
-
-      this.router.navigate(['/admin']);
-    }
+    this.router.navigate(['/admin']);
   }
 
   private generateRandomId(): number {

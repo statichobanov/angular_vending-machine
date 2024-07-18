@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { VendingMachineComponent } from './components/vending-machine/vending-machine.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     ProductListComponent,
     ProductDetailComponent,
     VendingMachineComponent,
+    ErrorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule, SharedModule],
   providers: [],

@@ -5,11 +5,16 @@
     Add Product
   </button>
   <a [routerLink]="['/product-list']" class="float-end"
-    >Back to products ordering</a
+    >Back to product ordering</a
   >
   <div class="container mt-5">
     <router-outlet></router-outlet>
   </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+
   <div class="list-container">
     <app-product-card *ngFor="let product of products" [product]="product">
       <button

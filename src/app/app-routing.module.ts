@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/product-list', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: '/product-list', pathMatch: 'full' },
 ];
 
 @NgModule({

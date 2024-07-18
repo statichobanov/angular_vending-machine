@@ -6,6 +6,7 @@ import {
   priceValidator,
   quantityValidator,
 } from 'src/app/validators/common';
+import { ERROR_MESSAGES } from 'src/app/constanst';
 
 @Component({
   selector: 'app-product-form',
@@ -18,6 +19,7 @@ export class ProductFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter<Product>();
 
   productForm!: FormGroup;
+  readonly errorMessages = ERROR_MESSAGES;
 
   constructor(private fb: FormBuilder) {}
 

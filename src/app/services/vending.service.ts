@@ -13,6 +13,10 @@ export class VendingService {
   private maxInsertedAmount = 10;
   private acceptedCoins: number[] = [0.1, 0.25, 0.5, 1, 5, 10];
 
+  getAcceptedCoins(): number[] {
+    return this.acceptedCoins;
+  }
+
   insertCoin(denomination: number): void {
     if (this.acceptedCoins.includes(denomination)) {
       const newAmount = this.insertedAmount.value + denomination;

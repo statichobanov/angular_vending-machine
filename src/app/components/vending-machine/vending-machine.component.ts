@@ -10,10 +10,12 @@ import { VendingService } from '../../services/vending.service';
 })
 export class VendingMachineComponent implements OnInit {
   insertedAmount: number = 0;
+  acceptedCoins: number[] = [];
 
   constructor(private vendingService: VendingService, private router: Router) {}
 
   ngOnInit(): void {
+    this.acceptedCoins = this.vendingService.getAcceptedCoins();
     this.vendingService.insertedAmount$.subscribe((amount) => {
       this.insertedAmount = amount;
     });
